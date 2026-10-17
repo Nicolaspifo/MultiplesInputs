@@ -2,18 +2,18 @@ using UnityEngine;
 
 namespace NetworkingLab.Player
 {
-    /// <summary>Applies movement supplied by PlayerInputSource. It has no knowledge of keys.</summary>
+    /// <summary>Applies movement supplied by a PlayerInputBase. It has no knowledge of keys.</summary>
     public sealed class PlayerController : MonoBehaviour
     {
-        [SerializeField] private PlayerInputSource inputSource;
+        [SerializeField] private PlayerInputBase inputSource;
         [SerializeField, Min(0f)] private float moveSpeed = 5f;
         [SerializeField] private LayerMask obstacleLayers = ~0;
         [SerializeField, Min(0.05f)] private float collisionRadius = 0.4f;
         [SerializeField, Min(0.05f)] private float collisionHeight = 0.8f;
 
-        public PlayerInputSource InputSource => inputSource;
+        public PlayerInputBase InputSource => inputSource;
 
-        public void Configure(PlayerInputSource source, float speed)
+        public void Configure(PlayerInputBase source, float speed)
         {
             inputSource = source;
             moveSpeed = speed;

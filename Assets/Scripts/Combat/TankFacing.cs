@@ -6,7 +6,7 @@ namespace NetworkingLab.Combat
     /// <summary>Turns the tank to face the direction it is moving.</summary>
     public sealed class TankFacing : MonoBehaviour
     {
-        [SerializeField] private PlayerInputSource inputSource;
+        [SerializeField] private PlayerInputBase inputSource;
         [SerializeField, Min(0f)] private float turnSpeed = 720f;
         [SerializeField] private Vector3 direction = Vector3.forward;
 
@@ -16,7 +16,7 @@ namespace NetworkingLab.Combat
         {
             if (inputSource == null)
             {
-                inputSource = GetComponent<PlayerInputSource>();
+                inputSource = GetComponent<PlayerInputBase>();
             }
         }
 

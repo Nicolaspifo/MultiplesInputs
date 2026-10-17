@@ -270,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c0efd061745e8a1459f38da2ca96b41f, type: 3}
+  - {fileID: 2100000, guid: 40720b6c7e18746faa95ad74d0067654, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: P1  WASD + Space     P2  Arrows + Right Ctrl     P3  IJKL + O     P4  Numpad 8456 + Numpad 0
+  m_Text: P1/P2  Arduino (4 potenciometros + 2 botones)     P3  IJKL + O     P4  Numpad 8456 + Numpad 0
 --- !u!222 &452123401
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,110 +842,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785609620}
   m_CullTransparentMesh: 1
---- !u!1 &913306161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 913306162}
-  - component: {fileID: 913306164}
-  - component: {fileID: 913306163}
-  m_Layer: 0
-  m_Name: Label (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &913306162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913306161}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.43837115, y: -0, z: -0, w: 0.89879405}
-  m_LocalPosition: {x: 0.014, y: 0.323, z: 0.164}
-  m_LocalScale: {x: 0.43325678, y: 0.43325683, z: 0.43325683}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1874252285}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &913306163
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913306161}
-  m_Text: Player 4
-  m_OffsetZ: 0
-  m_CharacterSize: 0.08
-  m_LineSpacing: 1
-  m_Anchor: 4
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 42
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &913306164
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913306161}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1009588343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,11 +1259,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531831616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7115627a09b34951a48b5d850e57dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c4d2e9f1a3b5c7d9e0f1a2b3c4d5e6f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.PlayerInputSource
-  inputActions: {fileID: -944628639613478452, guid: bab968cf60f714927a237cff4fcd0ee6, type: 3}
-  actionMapName: Player 2
+  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.ArduinoInputSource
+  playerIndex: 1
+  deadzone: 0.15
+  invertY: 0
 --- !u!65 &1531831622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,7 +1311,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c0efd061745e8a1459f38da2ca96b41f, type: 3}
+  - {fileID: 2100000, guid: 3d84f5b55e9e042ba81533588e969127, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1460,205 +1357,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1992426977}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1874252276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1874252285}
-  - component: {fileID: 1874252284}
-  - component: {fileID: 1874252283}
-  - component: {fileID: 1874252282}
-  - component: {fileID: 1874252281}
-  - component: {fileID: 1874252280}
-  - component: {fileID: 1874252279}
-  - component: {fileID: 1874252278}
-  - component: {fileID: 1874252277}
-  m_Layer: 0
-  m_Name: tank-body 4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1874252277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5bbd6707668174aa2f9973e20164a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Combat.TankWeapon
-  inputSource: {fileID: 1874252281}
-  projectilePrefab: {fileID: 2389332347026864854, guid: e28e3d579ee59ad47bc5fb0af5fb2b53, type: 3}
-  barrel: {fileID: 0}
-  muzzle: {fileID: 0}
-  cooldown: 0.35
-  projectileSpeed: 18
-  projectileLifetime: 3
-  damage: 1
---- !u!114 &1874252278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707640b3736d107418d83b820bb47e55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Combat.Health
-  maxHealth: 3
-  respawnDelay: 1.5
---- !u!114 &1874252279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823a9b7ad42f14b288024e28c73dcbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.PowerUp.PlayerPowerUp
-  playerName: Player 4
-  inputSource: {fileID: 1874252281}
---- !u!114 &1874252280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f2563696c784dc09185f212e8814cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.PlayerController
-  inputSource: {fileID: 1874252281}
-  moveSpeed: 5
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  collisionRadius: 0.4
-  collisionHeight: 0.8
---- !u!114 &1874252281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7115627a09b34951a48b5d850e57dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.PlayerInputSource
-  inputActions: {fileID: -944628639613478452, guid: bab968cf60f714927a237cff4fcd0ee6, type: 3}
-  actionMapName: Player 4
---- !u!65 &1874252282
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4009729, y: 0.16251051, z: 0.47759023}
-  m_Center: {x: 0, y: 0.000000007450581, z: 0}
---- !u!23 &1874252283
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -6478536213147159724, guid: c0efd061745e8a1459f38da2ca96b41f, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1874252284
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  m_Mesh: {fileID: -879872740337091912, guid: c0efd061745e8a1459f38da2ca96b41f, type: 3}
---- !u!4 &1874252285
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874252276}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.31, y: 0.22999999, z: -6.73}
-  m_LocalScale: {x: 2.3081, y: 2.3081, z: 2.3081}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 913306162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1992426976
@@ -1957,7 +1655,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c0efd061745e8a1459f38da2ca96b41f, type: 3}
+  - {fileID: 2100000, guid: 5b6e362bc15cc43f89d7d675bb173050, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2122,11 +1820,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147518090544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7115627a09b34951a48b5d850e57dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c4d2e9f1a3b5c7d9e0f1a2b3c4d5e6f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.PlayerInputSource
-  inputActions: {fileID: -944628639613478452, guid: bab968cf60f714927a237cff4fcd0ee6, type: 3}
-  actionMapName: Player 1
+  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.ArduinoInputSource
+  playerIndex: 0
+  deadzone: 0.15
+  invertY: 0
 --- !u!65 &3469287838121097269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2148,6 +1847,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4009729, y: 0.16251051, z: 0.47759023}
   m_Center: {x: 0, y: 0.000000007450581, z: 0}
+--- !u!1 &8800000000000000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8800000000000000002}
+  - component: {fileID: 8800000000000000003}
+  m_Layer: 0
+  m_Name: ArduinoInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8800000000000000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8800000000000000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8800000000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8800000000000000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2b3c4d5e6f70819a2b3c4d5e6f7081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NetworkingLab::NetworkingLab.Player.ArduinoSerialManager
+  portName: 
+  baudRate: 115200
+  detectAutomatically: 1
+  logStatus: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2157,8 +1904,8 @@ SceneRoots:
   - {fileID: 543450651989211018}
   - {fileID: 1531831625}
   - {fileID: 142465504}
-  - {fileID: 1874252285}
   - {fileID: 1199218641}
   - {fileID: 627195621}
   - {fileID: 2410473769655984514}
   - {fileID: 1390715136}
+  - {fileID: 8800000000000000002}

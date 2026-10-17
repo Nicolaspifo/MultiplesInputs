@@ -6,7 +6,7 @@ namespace NetworkingLab.Combat
     /// <summary>Local tank gun: aims with movement and fires on the PowerUp action.</summary>
     public sealed class TankWeapon : MonoBehaviour
     {
-        [SerializeField] private PlayerInputSource inputSource;
+        [SerializeField] private PlayerInputBase inputSource;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Transform barrel;
         [SerializeField] private Transform muzzle;
@@ -19,7 +19,7 @@ namespace NetworkingLab.Combat
         private float nextFireTime;
         private bool subscribed;
 
-        public void Configure(PlayerInputSource source, GameObject prefab, Transform barrelTransform, Transform muzzleTransform)
+        public void Configure(PlayerInputBase source, GameObject prefab, Transform barrelTransform, Transform muzzleTransform)
         {
             inputSource = source;
             projectilePrefab = prefab;

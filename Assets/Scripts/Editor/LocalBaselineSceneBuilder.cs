@@ -31,6 +31,7 @@ namespace NetworkingLab.Editor
 
             BuildEnvironment();
             BuildPlayers(inputAsset, projectilePrefab);
+            BuildArduinoInput();
             BuildUi();
 
             EditorSceneManager.SaveScene(scene, ScenePath);
@@ -135,8 +136,18 @@ namespace NetworkingLab.Editor
                 player.transform.position = positions[index];
                 player.GetComponent<Renderer>().sharedMaterial = GetOrCreateMaterial(playerName.Replace(" ", string.Empty), colors[index]);
 
-                PlayerInputSource input = player.AddComponent<PlayerInputSource>();
-                input.Configure(inputAsset, playerName);
+                PlayerInputBase input;
+                if (index < 2)
+                {
+                    input = player.AddComponent<ArduinoInputSource>().ConfigurePlayer(index, 0.15f);
+                }
+                else
+                {
+                    PlayerInputSource keyboard = player.AddComponent<PlayerInputSource>();
+                    keyboard.Configure(inputAsset, playerName);
+                    input = keyboard;
+                }
+
                 player.AddComponent<PlayerController>().Configure(input, 5f);
                 player.AddComponent<PlayerPowerUp>().Configure(playerName, input);
                 player.AddComponent<Health>().Configure(3, 1.5f);
@@ -170,6 +181,12 @@ namespace NetworkingLab.Editor
             }
         }
 
+        private static void BuildArduinoInput()
+        {
+            GameObject arduinoObject = new("ArduinoInput");
+            arduinoObject.AddComponent<ArduinoSerialManager>();
+        }
+
         private static void BuildUi()
         {
             GameObject canvasObject = new("UI");
@@ -183,7 +200,7 @@ namespace NetworkingLab.Editor
             Text title = CreateText(canvasObject.transform, "Title", "LOCAL GAMEPLAY BASELINE", 34, TextAnchor.UpperCenter);
             SetRect(title.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(-500f, -80f), new Vector2(500f, -20f));
 
-            string controls = "P1  WASD + Space     P2  Arrows + Right Ctrl     P3  IJKL + O     P4  Numpad 8456 + Numpad 0";
+            string controls = "P1/P2: Arduino (4 potenciometros + 2 botones)      P3  IJKL + O     P4  Numpad 8456 + Numpad 0";
             Text help = CreateText(canvasObject.transform, "Controls", controls, 23, TextAnchor.LowerCenter);
             SetRect(help.rectTransform, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(-850f, 20f), new Vector2(850f, 75f));
 

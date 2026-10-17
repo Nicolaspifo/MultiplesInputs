@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,7 @@ namespace NetworkingLab.Player
     /// Adapts an Input System action map to the small input surface used by gameplay.
     /// Bindings live in the InputActionAsset, not in PlayerController.
     /// </summary>
-    public sealed class PlayerInputSource : MonoBehaviour
+    public sealed class PlayerInputSource : PlayerInputBase
     {
         [SerializeField] private InputActionAsset inputActions;
         [SerializeField] private string actionMapName;
@@ -17,9 +16,7 @@ namespace NetworkingLab.Player
         private InputAction moveAction;
         private InputAction powerUpAction;
 
-        public event Action PowerUpPressed;
-
-        public Vector2 Movement => moveAction?.ReadValue<Vector2>() ?? Vector2.zero;
+        public override Vector2 Movement => moveAction?.ReadValue<Vector2>() ?? Vector2.zero;
         public InputActionAsset InputActions => inputActions;
         public string ActionMapName => actionMapName;
 
@@ -66,7 +63,7 @@ namespace NetworkingLab.Player
 
         private void OnPowerUpPerformed(InputAction.CallbackContext context)
         {
-            PowerUpPressed?.Invoke();
+            RaisePowerUpPressed();
         }
     }
 }

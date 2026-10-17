@@ -32,16 +32,37 @@ namespace NetworkingLab.Tests
         }
 
         [UnityTest]
-        public IEnumerator EveryPlayerMovesFromItsConfiguredInput()
+        public IEnumerator PlayersOneAndTwoUseArduinoAndThreeAndFourUseKeyboard()
         {
-            PlayerController[] players = Object.FindObjectsByType<PlayerController>(FindObjectsSortMode.None)
-                .OrderBy(player => player.name)
+            ArduinoInputSource[] arduino = Object.FindObjectsByType<ArduinoInputSource>(FindObjectsSortMode.None)
+                .OrderBy(source => source.PlayerIndex)
                 .ToArray();
-            Key[] forwardKeys = { Key.W, Key.UpArrow, Key.I, Key.Numpad8 };
+            Assert.AreEqual(2, arduino.Length, "Players 1 and 2 must be driven by the Arduino");
+            Assert.AreEqual(0, arduino[0].PlayerIndex);
+            Assert.AreEqual(1, arduino[1].PlayerIndex);
 
-            for (int index = 0; index < players.Length; index++)
+            PlayerInputSource[] keyboard = Object.FindObjectsByType<PlayerInputSource>(FindObjectsSortMode.None)
+                .OrderBy(source => source.ActionMapName)
+                .ToArray();
+            Assert.AreEqual(2, keyboard.Length, "Players 3 and 4 must remain keyboard driven");
+            Assert.AreEqual(new[] { "Player 3", "Player 4" }, keyboard.Select(source => source.ActionMapName).ToArray());
+
+            Assert.IsNotNull(Object.FindFirstObjectByType<ArduinoSerialManager>(), "The Arduino serial manager must exist in the scene");
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator KeyboardPlayersMoveFromTheirConfiguredInput()
+        {
+            var sources = Object.FindObjectsByType<PlayerInputSource>(FindObjectsSortMode.None)
+                .OrderBy(source => source.ActionMapName)
+                .ToArray();
+            Key[] forwardKeys = { Key.I, Key.Numpad8 };
+
+            for (int index = 0; index < sources.Length; index++)
             {
-                PlayerController player = players[index];
+                PlayerController player = sources[index].GetComponent<PlayerController>();
+                Assert.IsNotNull(player, sources[index].name + " has no PlayerController");
                 Vector3 before = player.transform.position;
                 InputSystem.QueueStateEvent(Keyboard.current, new KeyboardState(forwardKeys[index]));
                 yield return null;
@@ -52,12 +73,10 @@ namespace NetworkingLab.Tests
         }
 
         [UnityTest]
-        public IEnumerator BindingsMatchTheFourLocalPlayers()
+        public IEnumerator KeyboardBindingsMatchPlayersThreeAndFour()
         {
             var expected = new Dictionary<string, string[]>
             {
-                ["Player 1"] = new[] { "<Keyboard>/w", "<Keyboard>/s", "<Keyboard>/a", "<Keyboard>/d", "<Keyboard>/space" },
-                ["Player 2"] = new[] { "<Keyboard>/upArrow", "<Keyboard>/downArrow", "<Keyboard>/leftArrow", "<Keyboard>/rightArrow", "<Keyboard>/rightCtrl" },
                 ["Player 3"] = new[] { "<Keyboard>/i", "<Keyboard>/k", "<Keyboard>/j", "<Keyboard>/l", "<Keyboard>/o" },
                 ["Player 4"] = new[] { "<Keyboard>/numpad8", "<Keyboard>/numpad5", "<Keyboard>/numpad4", "<Keyboard>/numpad6", "<Keyboard>/numpad0" }
             };
@@ -78,7 +97,7 @@ namespace NetworkingLab.Tests
             PlayerInputSource[] sources = Object.FindObjectsByType<PlayerInputSource>(FindObjectsSortMode.None)
                 .OrderBy(source => source.ActionMapName)
                 .ToArray();
-            Key[] powerUpKeys = { Key.Space, Key.RightCtrl, Key.O, Key.Numpad0 };
+            Key[] powerUpKeys = { Key.O, Key.Numpad0 };
 
             for (int index = 0; index < sources.Length; index++)
             {

@@ -6,11 +6,11 @@ namespace NetworkingLab.PowerUp
     public sealed class PlayerPowerUp : MonoBehaviour
     {
         [SerializeField] private string playerName = "Player";
-        [SerializeField] private PlayerInputSource inputSource;
+        [SerializeField] private PlayerInputBase inputSource;
 
         public string PlayerName => playerName;
 
-        public void Configure(string displayName, PlayerInputSource source)
+        public void Configure(string displayName, PlayerInputBase source)
         {
             playerName = displayName;
             inputSource = source;
